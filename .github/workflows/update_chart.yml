@@ -1,4 +1,4 @@
-name: Python application
+name: Updating Gantt Chart
 env: 
         NOTION_TOKEN : ${{secrets.NOTION_TOKEN}}
         PAGE_ID : ${{secrets.PAGE_ID}}
