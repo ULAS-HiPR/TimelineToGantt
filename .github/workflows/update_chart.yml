@@ -4,7 +4,7 @@ env:
         PAGE_ID : ${{secrets.PAGE_ID}}
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
