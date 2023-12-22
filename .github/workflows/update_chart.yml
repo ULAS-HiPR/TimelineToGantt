@@ -39,6 +39,7 @@ jobs:
       run: | 
         npm i -g mermaid.cli
         ls
+        lp mermaidCode.mmd 
         mmdc -i mermaidCode.mmd  -o output.svg -w 1024 -H 768
         ls
     
