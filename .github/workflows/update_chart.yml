@@ -39,13 +39,20 @@ jobs:
       run: | 
         npm install -g @mermaid-js/mermaid-cli
         mv mermaidCode.txt  mermaidCode.mmd 
-        ls
+
         mmdc -i mermaidCode.mmd  -o output.svg -w 1024 -H 768
-        ls
+        mmdc -i mermaidCode.mmd  -o output.png -w 1024 -H 768
+
     
-    - name: Archive Image
+    - name: Archive Image SVG
       uses: actions/upload-artifact@v3
       with:
         name: gantt-chart
         path: output.svg
+
+    - name: Archive Image PNG
+      uses: actions/upload-artifact@v3
+      with:
+          name: gantt-chart
+          path: output.png
 
