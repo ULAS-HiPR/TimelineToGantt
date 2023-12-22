@@ -34,3 +34,15 @@ jobs:
       
     - name: Run file
       run: python main.py
+
+    - name: Generate Image
+      run: | 
+        npm i -g mermaid.cli
+        mmdc -i mermaidCode.mmd  -o output.svg -w 1024 -H 768
+    
+    - name: Archive Image
+      uses: actions/upload-artifact@v3
+      with:
+        name: gantt-chart
+        path: output.svg
+

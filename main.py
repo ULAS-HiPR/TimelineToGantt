@@ -138,6 +138,9 @@ def main(page_id):
     mermaid = generate_mermaid(dates,rockets,org,docs,other)
     #get_graph(graph_id)
     update_graph(graph_id,mermaid)
+    f = open("mermaidCode.mmd", "w")
+    f.write(mermaid)
+    f.close()
 
 try:
     main(sys.argv[1])
