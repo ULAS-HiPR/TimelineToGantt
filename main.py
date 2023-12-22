@@ -50,7 +50,6 @@ def get_header():
 
 def retrieveBlockChildren(block_id):
     response = requests.get("https://api.notion.com/v1/blocks/" + block_id + "/children", headers=get_header())
-
     return response.json()["results"]
 
 def retrieveDatabase(database_id):
@@ -110,22 +109,18 @@ def generate_mermaid(dates,rockets,org,docs,other):
     return mermaid
 
 def update_graph(graph_id,mermaid):
-    
-
     data =  {
-    "code":{
-    "rich_text": [
-        {
-            "type": "text",
-            "text": {
-                "content": mermaid,
-            }
+        "code":{
+        "rich_text": [
+            {
+                "type": "text",
+                "text": {
+                    "content": mermaid,
+                }
+            }]   
         }
-    ]
     }
-}
     
-
     response = requests.patch("https://api.notion.com/v1/blocks/" + graph_id, headers=get_header(), json=data)
     print(response)
 
@@ -143,9 +138,6 @@ def main(page_id):
     mermaid = generate_mermaid(dates,rockets,org,docs,other)
     #get_graph(graph_id)
     update_graph(graph_id,mermaid)
-
-
-
 
 try:
     main(sys.argv[1])
