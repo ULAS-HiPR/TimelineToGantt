@@ -37,9 +37,9 @@ jobs:
 
     - name: Generate Image
       run: | 
-        npm i -g mermaid.cli
+        npm install -g @mermaid-js/mermaid-cli
+        mv mermaidCode.txt  mermaidCode.mmd 
         ls
-        lp mermaidCode.mmd 
         mmdc -i mermaidCode.mmd  -o output.svg -w 1024 -H 768
         ls
     
