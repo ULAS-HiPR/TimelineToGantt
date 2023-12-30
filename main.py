@@ -9,12 +9,11 @@ load_dotenv()
 notionToken = os.getenv("NOTION_TOKEN")
 
 class Task:
-    def __init__(self,name,type,date,status,team) -> None:
+    def __init__(self,name,type,date,status) -> None:
         self.name = name
         self.type = type
         self.date = date
         self.status = status
-        self.team = team
     
     def dateRange(self):
         self.start = self.date["start"]
@@ -80,7 +79,7 @@ def get_tasks(database_id):
 
 def seperate_tasks(tasks):
     dates =  [task for task in tasks if task.type == "Dates"]
-    rockets = [task for task in tasks if task.type == "Rocket Parts"]
+    rockets = [task for task in tasks if task.type == "Eningeering"]
     org = [task for task in tasks if task.type == "Organisation"]
     docs = [task for task in tasks if task.type == "Documentation"]
     other = [task for task in tasks if task.type == "Other"]
@@ -94,7 +93,7 @@ def generate_mermaid(dates,rockets,org,docs,other):
     mermaid += "section Dates\n"
     for task in dates:
         mermaid += task.name + " : " + task.start + ", " + task.range + "\n"
-    mermaid += "section Rocket Parts\n"
+    mermaid += "section Engineering\n"
     for task in rockets:
         mermaid += task.name + " : " + task.start + ", " + task.range + "\n"
     mermaid += "section Organisation\n"
