@@ -75,7 +75,7 @@ def get_tasks(database_id):
     response = retrieveDatabase(database_id)
     tasks = []
     for task in response:
-        tasks.append(Task(task["properties"]["Name"]["title"][0]["text"]["content"],task["properties"]["Type"]["multi_select"][0]["name"],task["properties"]["Date"]["date"],task["properties"]["Status"]["status"]["name"],task["properties"]["Team"]["select"]))
+        tasks.append(Task(task["properties"]["Name"]["title"][0]["text"]["content"],task["properties"]["Type"]["multi_select"][0]["name"],task["properties"]["Date"]["date"],task["properties"]["Status"]["status"]["name"]))
     return tasks
 
 def seperate_tasks(tasks):
