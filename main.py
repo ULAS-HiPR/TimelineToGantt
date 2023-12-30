@@ -61,7 +61,7 @@ def get_ids(page_id):
         if "code" in block:
             if block["code"]["language"] == "mermaid":
                 graph_id = block["id"]
-                print(graph_id)
+                #print(graph_id)
         if "heading_2" in block:
             if block["heading_2"]["rich_text"][0]["text"]["content"] == "Database":
                 response = retrieveBlockChildren(block["id"])
